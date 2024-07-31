@@ -7,14 +7,14 @@ EXPOSE 443
 # Use the SDK image for build and publish
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["YourProject.csproj", "./"]
-RUN dotnet restore "./YourProject.csproj"
-COPY . .
-WORKDIR "/src/."
-RUN dotnet build "YourProject.csproj" -c Release -o /app/build
+# COPY ["YourProject.csproj", "./"]
+# RUN dotnet restore "./YourProject.csproj"
+# COPY . .
+# WORKDIR "/src/."
+# RUN dotnet build "YourProject.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "YourProject.csproj" -c Release -o /app/publish
+# RUN dotnet publish "YourProject.csproj" -c Release -o /app/publish
 
 # Final stage/image
 FROM base AS final
