@@ -19,5 +19,5 @@ FROM build AS publish
 # Final stage/image
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "YourProject.dll"]
+# COPY --from=publish /app/publish .
+# ENTRYPOINT ["dotnet", "YourProject.dll"]
